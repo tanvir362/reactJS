@@ -13,8 +13,9 @@ class Counter extends Component{
             {
                 count: this.state.count + 1
             },
-            () => console.log(this.state.count)
+            () => console.log('call back value: '+this.state.count)
         )
+        console.log(this.state.count);
     }
 
     render(){
