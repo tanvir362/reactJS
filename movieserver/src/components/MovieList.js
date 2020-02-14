@@ -28,7 +28,7 @@ const MovieList = () => (
       >
         <List.Item.Meta
           title={<a href={item.src}>{item.name}</a>}
-          description={item.description + ' '+ item.src}
+          description={item.description}
         />
         {/* <span title={item.src}>Link</span> */}
         {/* <Card title={item.name}>{item.description}</Card> */}
