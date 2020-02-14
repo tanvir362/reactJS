@@ -14,7 +14,7 @@ const MovieList = () => (
       xl: 4,
       xxl: 3,
     }}
-    dataSource={ Movies }
+    dataSource={ Movies.filter(mv => mv.isPrivate === false) }
     renderItem={item => (
       <List.Item
       extra={
@@ -27,7 +27,7 @@ const MovieList = () => (
 
       >
         <List.Item.Meta
-          title={<a href={item.src}>{item.name}</a>}
+          title={<a href={item.id}>{item.name}</a>}
           description={item.description}
         />
         {/* <span title={item.src}>Link</span> */}
