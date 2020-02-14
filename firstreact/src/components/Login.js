@@ -10,8 +10,9 @@ class Login extends Component{
             username: '',
             password: ''
         }
-        this.changeUsernameHandler = this.changeUsernameHandler.bind(this)
-        this.changePasswordHandler = this.changePasswordHandler.bind(this)
+        this.changeUsernameHandler = this.changeUsernameHandler.bind(this);
+        this.changePasswordHandler = this.changePasswordHandler.bind(this);
+        this.onClickHandler = this.onClickHandler.bind(this);
     }
     changeUsernameHandler(event){
         this.setState({
@@ -26,6 +27,21 @@ class Login extends Component{
         })
     }
 
+    onClickHandler(){
+        let usrnm = this.state.username;
+        let pass = this.state.password;
+        if(/^[A-Za-z0-9]+$/.test(usrnm) && (7<pass.length && pass.length <21)){
+            let users = this.state.loggedInUsers;
+            users.push(usrnm);
+            this.setState({
+            loggedInUsers: users
+            }, () => console.log(usrnm))
+        }
+        else{
+            alert("Invalid username or password!")
+        }
+    }
+
     render(){
         return(
             <div className="login">
@@ -33,15 +49,16 @@ class Login extends Component{
                     <h3>Logged In users</h3>
                     <ul className="example">
                         {
-
+                            this.state.loggedInUsers.map(x => <li>{x}</li>)
                         }
                     </ul>
                 </div>
 
                 <div className="lgn_right">
+                    <h3>User Login</h3>
                     <input className="field" type="text" placeholder="Username" onChange={this.changeUsernameHandler} value={this.state.username} />
                     <input className="field" type="password" placeholder="Password" onChange={this.changePasswordHandler} value={this.state.password} />
-                    <input className="btn" type="submit" value="LOGIN" />
+                    <button className="btn" onClick={this.onClickHandler}>LOGIN</button>
                 </div>
 
             </div>

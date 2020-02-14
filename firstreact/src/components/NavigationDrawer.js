@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import SuggestCountry from './SuggestCountry'
 import Login from './Login'
 import './Navigation.css'
+import DropDown from './DropDown'
 
 class NavigationDrawer extends Component{   
 
@@ -22,7 +23,7 @@ class NavigationDrawer extends Component{
 
     render(){
         return(
-            <div>
+            <div className='myapp'>
                 <div id="mySidenav" className={this.state.sidenavcls}>
                     <a href="javascript:void(0)" onClick={this.togglesidenav}><img src="http://app.getcultivate.io/api/media/org_logo/D2_6KFUlKI.png" height="60" width="60" /></a>
                     <a href="#">About</a>
@@ -34,7 +35,8 @@ class NavigationDrawer extends Component{
                 <div className='content'>
                     
                     <Login />
-                    {/* <SuggestCountry /> */}
+                    <SuggestCountry />
+                    <DropDown />
                 </div>
             </div>
         );

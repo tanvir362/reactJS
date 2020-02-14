@@ -31,34 +31,42 @@ class SuggestCountry extends Component{
             country: ''
         }
         this.onChangeHandler = this.onChangeHandler.bind(this);
+        this.optionClickHandler = this.optionClickHandler.bind(this);
+    }
+
+    optionClickHandler(event){
+        console.log(event.target.value);
     }
 
     onChangeHandler(event){
         this.setState({
             country: event.target.value,
-            sugCountry: this.state.countries.filter(cntry => cntry.toLowerCase().includes(event.target.value.toLowerCase())).map(c => <h4>{c}</h4>)
+            sugCountry: this.state.countries.filter(cntry => cntry.toLowerCase().includes(event.target.value.toLowerCase()))
+            .map(c => <li value={c} onClick={this.optionClickHandler}>{c}</li>)
         })
     }
 
     render(){
         return(
-            <div>
-                <label>Country: </label>
+            <div className='sug'>
+                 <label><h3>Country: </h3></label>
                 <input
                     type= 'text'
+                    className='field'
+                    placeholder='Country'
                     value={this.state.country}
                     onChange={this.onChangeHandler}
 
                 />
-                <h2>Suggestion</h2>
-                <div className='sug'>
+                <h3>Suggestion</h3>
+                <ul className='sug-scroll'>
                 {
                     this.state.sugCountry
                 }
-                </div>
+                </ul>
             </div>
         );
     }
 }
 
-export default SuggestCountry;
+export default SuggestCountry

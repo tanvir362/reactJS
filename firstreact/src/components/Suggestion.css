@@ -1,5 +1,23 @@
-.sug {
-    width: 440px;
-    height: 200px;
-    overflow: scroll;
-  }
+.sug-scroll {
+  margin: 5px 25px;
+  background-color: #eee;
+  width: 200px;
+  height: 100px;
+  border:1px #525d65 solid;
+  overflow-y: scroll; /* Add the ability to scroll */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.sug-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.field { 
+	background: #eee !important;
+	margin:5px 25px;
+	width:216px;
+}
+.sug{
+  margin: auto;
+  
+}
